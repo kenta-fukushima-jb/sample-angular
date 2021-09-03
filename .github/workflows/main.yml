@@ -8,4 +8,15 @@ jobs:
     steps:
       - name: Event Information
         run: |
-          echo dispatch
+          echo "dispatch" > test.txt
+          ls -al
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3.8.2
+        with:
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          commit-message: 'Update manifest'
+          title: Update manifest ${{ github.event.client_payload.sha }}
+          body: ""
+          labels: ""
+          branch: update-manifest-${{ github.event.client_payload.sha }}
+          base: main
