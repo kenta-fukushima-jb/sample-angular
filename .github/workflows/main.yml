@@ -6,6 +6,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout manifest repository
+        uses: actions/checkout@v2
       - name: Event Information
         run: |
           echo "dispatch" > test.txt
