@@ -8,5 +8,4 @@ jobs:
     steps:
       - name: Event Information
         run: |
-          echo "Event is '${{ github.event.action }}'" 
-          echo "Message is '${{ github.event.client_payload.message }}'"
+          echo dispatch
